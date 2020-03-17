@@ -25,7 +25,7 @@ SECRET_KEY = '51w!4aqw$8%8+q7p=8e))j@r+pef5@i=qar!8$$3w!v43=s5yy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'fileupload'
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 파일에 접근할 수 있는 웹 URL 경로
+MEDIA_URL = '/file/'
+# 실제 파일이 저장될 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'file')
