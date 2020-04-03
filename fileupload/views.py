@@ -6,7 +6,7 @@ from rest_framework import status
 
 from .serializers import FileSerializer
 
-# APIView 말고 ViewSet로 코드 바꿔볼까?
+
 class FileUploadView(APIView):
     # FileUploadParser는 JSONParser와 비슷한 역할을 함.
     parser_class = (FileUploadParser, )
@@ -14,6 +14,9 @@ class FileUploadView(APIView):
     # 파일 생성(업로드)
     def post(self, request, *args, **kwargs):
         file_serializer = FileSerializer(data=request.data)
+
+        # 여기서 data 값을 다룰 수 있도록 받아와야 함. !!!
+        # 일단 리액트 공부를 좀 해야할듯... 2주 뒤 이 프로젝트로 돌아와야지...
 
         if file_serializer.is_valid():
             file_serializer.save()
